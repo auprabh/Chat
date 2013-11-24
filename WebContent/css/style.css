@@ -1,0 +1,62 @@
+ * {font-family: tahoma; font-size: 14px; padding: 0px; margin: 0px;}
+ 
+ div#webchatWindow{background-color: #aa0000; color: #ffffff; width: 650px; margin-left: auto; margin-right: auto; border-radius: 5px; border: 1px solid #aa0000; padding: 5px; margin-top:10px;}
+    
+ 
+ 
+    div#chatWindow{background-color: #aa0000; color: #ffffff; width: 650px; margin-left: auto; margin-right: auto; border-radius: 5px; border: 1px solid #aa0000; padding: 5px;}
+    div#chatTitle{font-size: 50px; margin-left:10px;}
+    p {line-height: 20px; padding:5px; margin: 2px;}
+    div {width: 600px; margin-left: auto; margin-right: auto;}
+    div#inputBox{width: 640px; margin-left: auto; margin-right: auto; background-color: #aa0000; margin-top: 30px;}
+    #content {padding: 10px; margin-left:5px; width:560px;}
+    #input {border-radius: 2px; border: 1px solid #ffffff; margin-top: 5px; padding: 10px; width: 480px;}
+    #status {width: 130px; display: block; float: left; margin-top: 15px;}
+
+blockquote.quote {
+position:relative; /*see the support section below for more info*/
+width:590px; /*size of the bubble*/
+padding:20px;
+margin:10px 20px 20px 0px;
+margin-left:10px;
+color:#000000;
+/**Give the corners a curve **/
+-webkit-border-radius:10px;
+-moz-border-radius:10px;
+border-radius:10px; /* the second value, preceded by a / defines the vertical radius*/
+/**Add a gradient to the background of the bubble**/
+background:#e1e1e1; /*required for browsers that don't support gradients*/
+background:-webkit-gradient(#e1e1e1, #999999);
+background:-moz-linear-gradient(#e1e1e1, #999999);
+background:-o-linear-gradient(#e1e1e1, #999999);
+background:linear-gradient(#e1e1e1, #999999);
+}
+/*****NOW CREATE THE TRIANGLE*****/
+/**because this is an obtuse triangle we'll create it in two sections**/
+/**First the coloured section that you see as the triangle**/
+blockquote.quote:before {
+content:"";
+position:absolute; /*see the support section below for more info*/
+bottom:-30px; /*height of the triangle*/
+right:80px; /*distance from the right edge of the bubble*/
+border-width:0 0 30px 60px; /*3rd value is height of the triangle and must be same as bottom*/
+border-style:solid;
+border-color:transparent #999999; /*colour of the triangle*/
+}
+/**Now the transparent section that's the same colour as the container background**/
+blockquote.quote:after {
+content:"";
+position:absolute; /*see the support section below for more info*/
+bottom:-30px; /*height of the triangle, same as the bottom value in :before*/
+right:105px; /* = (right set above in :before) + (forth value of border-width) so here 80px + 35px */
+border-width:0 0 30px 35px; /*3rd value is height of the triangle and must be same as bottom*/
+border-style:solid;
+border-color:transparent #aa0000; /*background colour of the container*/
+}
+/******FINALLY POSITION & SYTLE THE AUTHOR'S NAME TEXT*****/
+blockquote.quote + p {
+margin-top:-30px;
+padding-left:260px;
+font-style:italic;
+letter-spacing:-1px;
+}
